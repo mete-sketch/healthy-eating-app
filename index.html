@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Eat Well" />
+  <meta name="theme-color" content="#f0fdf4" />
+  <title>Eat Well</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a' },
+            warm: { 50: '#fefce8', 100: '#fef9c3' }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.min.js"></script>
+  <style>
+    * { -webkit-tap-highlight-color: transparent; }
+    body {
+      margin: 0; padding: 0;
+      background: #f0fdf4;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overscroll-behavior: none;
+      -webkit-font-smoothing: antialiased;
+    }
+    @keyframes pulse-gentle { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .pulse-gentle { animation: pulse-gentle 1.5s ease-in-out infinite; }
+    @keyframes fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fade-in 0.3s ease-out; }
+    @keyframes slide-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .slide-up { animation: slide-up 0.4s ease-out; }
+    .smooth-expand { transition: max-height 0.3s ease-out, opacity 0.3s ease-out; overflow: hidden; }
+    @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+    .pulse-ring { animation: pulse-ring 1.5s ease-out infinite; }
+    input:focus { outline: none; }
+    ::-webkit-scrollbar { display: none; }
+    @supports (padding: env(safe-area-inset-bottom)) {
+      .safe-bottom { padding-bottom: calc(0.75rem + env(safe-area-inset-bottom)); }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useCallback } = React;
+
+    // Lucide icons from UMD
+    const icons = window.lucideReact || {};
+    const Icon = ({ name, size = 20, className = '', ...props }) => {
+      const LucideIcon = icons[name];
+      if (!LucideIcon) return null;
+      return <LucideIcon size={size} className={className} {...props} />;
+    };
+
+    // ── Motivational messages ──
+    const messages = [
+      // Motivational
+      "Progress, not perfection.",
+      "Every healthy meal is an investment in your future self.",
+      "You don't have to be perfect — just consistent.",
+      "Small changes today, big results tomorrow.",
+      "Your body is a reflection of what you feed it.",
+      "One good meal at a time.",
+      "Healthy eating isn't a diet — it's a lifestyle.",
+      "You're one meal away from being back on track.",
+      "Nourish your body, calm your mind.",
+      "The best project you'll ever work on is you.",
+      "Be patient with yourself. Change takes time.",
+      "You already made a great choice by checking.",
+      "Celebrate every healthy decision, no matter how small.",
+      "What you eat in private, you wear in public.",
+      "Your future self will thank you for this meal.",
+      // Factual
+      "Eating slowly can reduce calorie intake by up to 10%.",
+      "Fibre keeps you fuller for longer — aim for 30g a day.",
+      "Drinking water before meals can help with portion control.",
+      "Colourful plates = more nutrients. Aim for 3+ colours per meal.",
+      "Protein at breakfast helps reduce cravings later in the day.",
+      "Your gut has 100 trillion bacteria — feed them well with fibre.",
+      "It takes about 20 minutes for your brain to register fullness.",
+      "Leafy greens are among the most nutrient-dense foods on earth.",
+      "Chewing food thoroughly improves digestion and nutrient absorption.",
+      "Omega-3s in oily fish can help reduce inflammation.",
+      "A handful of nuts daily is linked to longer life expectancy.",
+      "Sweet potatoes are packed with vitamin A — great for skin and eyes.",
+      "Fermented foods like yoghurt support a healthy gut microbiome.",
+      "Berries are among the highest antioxidant foods you can eat.",
+      "Eating more plants is the single best thing for your health.",
+      "Dark chocolate (70%+) has more antioxidants than most fruits.",
+    ];
+
+    // ── API Configuration ──
+    const API_PROXY_URL = '/api/analyze';
+    const API_IMAGE_URL = '/api/analyze-image';
+
+    // ── Image resize utility ──
+    function resizeAndEncode(file, maxWidth = 800) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            let width = img.width;
+            let height = img.height;
+            if (width > maxWidth) {
+              height = Math.round((height * maxWidth) / width);
+              width = maxWidth;
+            }
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+            const base64 = dataUrl.split(',')[1];
+            resolve({ base64, mediaType: 'image/jpeg' });
+          };
+          img.onerror = () => reject(new Error('Could not load image'));
+          img.src = e.target.result;
+        };
+        reader.onerror = () => reject(new Error('Could not read file'));
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // ── Speech recognition check ──
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    // ── Main App ──
+    function App() {
+      const [activeTab, setActiveTab] = useState('check');
+      const [motivationalMsg, setMotivationalMsg] = useState('');
+
+      useEffect(() => {
+        setMotivationalMsg(messages[Math.floor(Math.random() * messages.length)]);
+      }, []);
+
+      return (
+        <div className="min-h-screen bg-sage-50 flex flex-col" style={{ paddingBottom: '80px' }}>
+          {/* Status bar spacer */}
+          <div className="h-12 bg-sage-50" />
+
+          {/* Motivational banner */}
+          <div className="px-5 pb-3 fade-in">
+            <div className="bg-white rounded-2xl p-4 shadow-sm border border-sage-100">
+              <div className="flex items-start gap-3">
+                <div className="mt-0.5">
+                  <Icon name="Sparkles" size={18} className="text-sage-500" />
+                </div>
+                <p className="text-base text-gray-600 italic leading-relaxed flex-1">
+                  "{motivationalMsg}"
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Tab content */}
+          <div className="flex-1 px-5">
+            {activeTab === 'check' && <CheckFoodTab />}
+            {activeTab === 'myday' && <MyDayTab />}
+            {activeTab === 'guide' && <GuideTab />}
+          </div>
+
+          {/* Bottom navigation */}
+          <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-sage-100 safe-bottom z-50">
+            <div className="flex justify-around items-center pt-2 pb-3 max-w-lg mx-auto">
+              <NavButton icon="Search" label="Check Food" active={activeTab === 'check'} onClick={() => setActiveTab('check')} />
+              <NavButton icon="CalendarDays" label="My Day" active={activeTab === 'myday'} onClick={() => setActiveTab('myday')} />
+              <NavButton icon="BookOpen" label="Guide" active={activeTab === 'guide'} onClick={() => setActiveTab('guide')} />
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function NavButton({ icon, label, active, onClick }) {
+      return (
+        <button
+          onClick={onClick}
+          className={`flex flex-col items-center gap-1 px-4 py-1 rounded-xl transition-all duration-200 ${
+            active ? 'text-sage-600' : 'text-gray-400'
+          }`}
+        >
+          <Icon name={icon} size={22} className={active ? 'text-sage-600' : 'text-gray-400'} />
+          <span className={`text-xs font-medium ${active ? 'text-sage-600' : 'text-gray-400'}`}>{label}</span>
+          {active && <div className="w-1 h-1 rounded-full bg-sage-500 mt-0.5" />}
+        </button>
+      );
+    }
+
+    // ══════════════════════════════════
+    // ── CHECK FOOD TAB ──
+    // ══════════════════════════════════
+    function CheckFoodTab() {
+      const [query, setQuery] = useState('');
+      const [loading, setLoading] = useState(false);
+      const [loadingSource, setLoadingSource] = useState('text');
+      const [result, setResult] = useState(null);
+      const [error, setError] = useState('');
+      const [isListening, setIsListening] = useState(false);
+      const [imagePreview, setImagePreview] = useState(null);
+      const inputRef = useRef(null);
+      const fileInputRef = useRef(null);
+      const recognitionRef = useRef(null);
+
+      // ── Text analysis ──
+      const analyzeFood = async (foodText) => {
+        const food = foodText || query.trim();
+        if (!food) return;
+        setLoading(true);
+        setLoadingSource('text');
+        setError('');
+        setResult(null);
+        setImagePreview(null);
+
+        try {
+          const response = await fetch(API_PROXY_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ food }),
+          });
+          if (!response.ok) {
+            const errData = await response.json().catch(() => ({}));
+            throw new Error(errData.error || 'Something went wrong. Please try again.');
+          }
+          const data = await response.json();
+          setResult(data);
+        } catch (err) {
+          setError(err.message || 'Could not analyse food. Check your connection and try again.');
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        analyzeFood();
+      };
+
+      // ── Voice input ──
+      const toggleVoice = () => {
+        if (isListening) {
+          recognitionRef.current?.stop();
+          setIsListening(false);
+          return;
+        }
+
+        if (!SpeechRecognition) {
+          setError('Voice input is not supported in this browser. Try typing instead.');
+          return;
+        }
+
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'en-GB';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+        recognition.continuous = false;
+
+        recognition.onresult = (event) => {
+          const transcript = event.results[0][0].transcript;
+          setQuery(transcript);
+          setIsListening(false);
+          setLoadingSource('voice');
+          setTimeout(() => analyzeFood(transcript), 300);
+        };
+
+        recognition.onerror = (event) => {
+          setIsListening(false);
+          if (event.error === 'not-allowed') {
+            setError('Microphone access denied. Check your browser settings.');
+          } else if (event.error !== 'no-speech' && event.error !== 'aborted') {
+            setError('Voice input failed. Please try again or type your food.');
+          }
+        };
+
+        recognition.onend = () => setIsListening(false);
+
+        recognitionRef.current = recognition;
+        recognition.start();
+        setIsListening(true);
+        setError('');
+        setResult(null);
+      };
+
+      // ── Photo input ──
+      const handleImageSelected = async (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        e.target.value = '';
+
+        setLoading(true);
+        setLoadingSource('photo');
+        setError('');
+        setResult(null);
+
+        try {
+          const { base64, mediaType } = await resizeAndEncode(file);
+          setImagePreview(`data:${mediaType};base64,${base64}`);
+
+          const response = await fetch(API_IMAGE_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: base64, media_type: mediaType }),
+          });
+          if (!response.ok) {
+            const errData = await response.json().catch(() => ({}));
+            throw new Error(errData.error || 'Something went wrong. Please try again.');
+          }
+          const data = await response.json();
+          setResult(data);
+          if (data.food) setQuery(data.food);
+        } catch (err) {
+          setError(err.message || 'Could not analyse the photo. Please try again.');
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      const getRatingColor = (rating) => {
+        if (rating >= 7) return { bg: 'bg-green-100', text: 'text-green-700', border: 'border-green-200', ring: 'ring-green-400' };
+        if (rating >= 4) return { bg: 'bg-amber-100', text: 'text-amber-700', border: 'border-amber-200', ring: 'ring-amber-400' };
+        return { bg: 'bg-red-100', text: 'text-red-700', border: 'border-red-200', ring: 'ring-red-400' };
+      };
+
+      const getRatingEmoji = (rating) => {
+        if (rating >= 7) return 'Great choice!';
+        if (rating >= 4) return 'Not bad — here\'s how to make it even better';
+        return 'Maybe save this one for a treat day';
+      };
+
+      const loadingMessage = loadingSource === 'photo'
+        ? 'Identifying food from your photo...'
+        : loadingSource === 'voice'
+        ? 'Analysing what you said...'
+        : 'Analysing your food choice...';
+
+      return (
+        <div className="space-y-4 fade-in">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-800 mb-1">Check a Food</h1>
+            <p className="text-base text-gray-500">Type, speak, or snap a photo</p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="flex gap-2 items-center">
+            {/* Mic button */}
+            {SpeechRecognition && (
+              <button
+                type="button"
+                onClick={toggleVoice}
+                disabled={loading}
+                className={`rounded-xl p-3 shadow-sm transition-all active:scale-95 flex-shrink-0 ${
+                  isListening
+                    ? 'bg-red-50 border-2 border-red-300 text-red-500 pulse-ring'
+                    : 'bg-white border border-sage-200 text-sage-600 disabled:opacity-40'
+                }`}
+              >
+                <Icon name={isListening ? 'MicOff' : 'Mic'} size={20} />
+              </button>
+            )}
+
+            {/* Text input */}
+            <input
+              ref={inputRef}
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={isListening ? 'Listening...' : 'e.g. chicken salad, pizza...'}
+              className="flex-1 min-w-0 bg-white rounded-xl px-4 py-3 text-base border border-sage-200 focus:border-sage-400 focus:ring-2 focus:ring-sage-200 transition-all shadow-sm"
+              disabled={loading || isListening}
+            />
+
+            {/* Hidden file input */}
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              capture="environment"
+              className="hidden"
+              onChange={handleImageSelected}
+            />
+
+            {/* Camera button */}
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              disabled={loading}
+              className="bg-white border border-sage-200 text-sage-600 rounded-xl p-3 shadow-sm transition-all active:scale-95 disabled:opacity-40 flex-shrink-0"
+            >
+              <Icon name="Camera" size={20} />
+            </button>
+
+            {/* Submit button */}
+            <button
+              type="submit"
+              disabled={loading || !query.trim()}
+              className="bg-sage-500 text-white rounded-xl p-3 font-medium text-base shadow-sm disabled:opacity-40 active:scale-95 transition-all flex-shrink-0"
+            >
+              {loading ? (
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <Icon name="ArrowRight" size={20} />
+              )}
+            </button>
+          </form>
+
+          {/* Listening indicator */}
+          {isListening && (
+            <div className="bg-red-50 rounded-2xl p-4 border border-red-200 text-center slide-up">
+              <div className="flex items-center justify-center gap-3">
+                <div className="flex gap-1">
+                  <div className="w-2 h-2 bg-red-400 rounded-full pulse-gentle" style={{ animationDelay: '0s' }} />
+                  <div className="w-3 h-3 bg-red-400 rounded-full pulse-gentle" style={{ animationDelay: '0.2s' }} />
+                  <div className="w-2 h-2 bg-red-400 rounded-full pulse-gentle" style={{ animationDelay: '0.4s' }} />
+                </div>
+                <p className="text-base text-red-600 font-medium">Listening... say a food name</p>
+              </div>
+            </div>
+          )}
+
+          {/* Loading */}
+          {loading && (
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-sage-100 text-center slide-up">
+              <div className="flex flex-col items-center gap-3">
+                {imagePreview && (
+                  <img src={imagePreview} alt="Food photo" className="w-24 h-24 object-cover rounded-xl shadow-sm border border-sage-200" />
+                )}
+                <div className="flex gap-1">
+                  <div className="w-2.5 h-2.5 bg-sage-400 rounded-full pulse-gentle" style={{ animationDelay: '0s' }} />
+                  <div className="w-2.5 h-2.5 bg-sage-400 rounded-full pulse-gentle" style={{ animationDelay: '0.2s' }} />
+                  <div className="w-2.5 h-2.5 bg-sage-400 rounded-full pulse-gentle" style={{ animationDelay: '0.4s' }} />
+                </div>
+                <p className="text-base text-gray-500">{loadingMessage}</p>
+              </div>
+            </div>
+          )}
+
+          {/* Error */}
+          {error && (
+            <div className="bg-red-50 rounded-2xl p-4 border border-red-200 slide-up">
+              <div className="flex gap-3 items-start">
+                <Icon name="AlertCircle" size={20} className="text-red-500 mt-0.5" />
+                <p className="text-base text-red-700">{error}</p>
+              </div>
+            </div>
+          )}
+
+          {/* Photo preview + result */}
+          {imagePreview && result && (
+            <div className="flex justify-center slide-up">
+              <img src={imagePreview} alt="Food photo" className="w-32 h-32 object-cover rounded-2xl shadow-sm border border-sage-200" />
+            </div>
+          )}
+
+          {result && (
+            <FoodResult result={result} getRatingColor={getRatingColor} getRatingEmoji={getRatingEmoji} />
+          )}
+        </div>
+      );
+    }
+
+    function FoodResult({ result, getRatingColor, getRatingEmoji }) {
+      const colors = getRatingColor(result.rating);
+
+      return (
+        <div className="space-y-3 slide-up">
+          {/* Rating card */}
+          <div className={`bg-white rounded-2xl p-5 shadow-sm border ${colors.border}`}>
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-lg font-semibold text-gray-800 capitalize">{result.food}</h2>
+              <div className={`${colors.bg} ${colors.text} w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold ring-2 ${colors.ring}`}>
+                {result.rating}
+              </div>
+            </div>
+            <p className={`text-base font-medium ${colors.text} mb-2`}>
+              {getRatingEmoji(result.rating)}
+            </p>
+            <p className="text-base text-gray-600 leading-relaxed">{result.explanation}</p>
+          </div>
+
+          {/* Portion & Calories */}
+          <div className="grid grid-cols-2 gap-3">
+            <div className="bg-white rounded-2xl p-4 shadow-sm border border-sage-100">
+              <div className="flex items-center gap-2 mb-2">
+                <Icon name="Hand" size={18} className="text-sage-500" />
+                <span className="text-sm font-medium text-gray-500">Portion</span>
+              </div>
+              <p className="text-base text-gray-800 font-medium">{result.portion}</p>
+            </div>
+            <div className="bg-white rounded-2xl p-4 shadow-sm border border-sage-100">
+              <div className="flex items-center gap-2 mb-2">
+                <Icon name="Flame" size={18} className="text-orange-400" />
+                <span className="text-sm font-medium text-gray-500">Calories</span>
+              </div>
+              <p className="text-base text-gray-800 font-medium">{result.calories}</p>
+            </div>
+          </div>
+
+          {/* Healthier alternative */}
+          {result.alternative && (
+            <div className="bg-sage-50 rounded-2xl p-4 border border-sage-200">
+              <div className="flex items-start gap-3">
+                <Icon name="Lightbulb" size={20} className="text-sage-600 mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium text-sage-700 mb-1">Healthier swap</p>
+                  <p className="text-base text-gray-700">{result.alternative}</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // ══════════════════════════════════
+    // ── MY DAY TAB ──
+    // ══════════════════════════════════
+    function MyDayTab() {
+      const [meals, setMeals] = useState([]);
+      const [showAddForm, setShowAddForm] = useState(false);
+      const [newMealName, setNewMealName] = useState('');
+      const [newMealCalories, setNewMealCalories] = useState('');
+      const [newMealRating, setNewMealRating] = useState(5);
+
+      const addMeal = (e) => {
+        e.preventDefault();
+        if (!newMealName.trim()) return;
+        setMeals(prev => [...prev, {
+          id: Date.now(),
+          name: newMealName.trim(),
+          calories: parseInt(newMealCalories) || 0,
+          rating: newMealRating,
+          time: new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })
+        }]);
+        setNewMealName('');
+        setNewMealCalories('');
+        setNewMealRating(5);
+        setShowAddForm(false);
+      };
+
+      const removeMeal = (id) => {
+        setMeals(prev => prev.filter(m => m.id !== id));
+      };
+
+      const totalCalories = meals.reduce((sum, m) => sum + m.calories, 0);
+      const avgRating = meals.length > 0 ? (meals.reduce((sum, m) => sum + m.rating, 0) / meals.length).toFixed(1) : 0;
+
+      const getDayStatus = () => {
+        if (meals.length === 0) return { color: 'text-gray-400', bg: 'bg-gray-100', label: 'No meals logged yet', icon: 'Coffee' };
+        if (avgRating >= 7) return { color: 'text-green-600', bg: 'bg-green-100', label: 'Amazing day so far!', icon: 'ThumbsUp' };
+        if (avgRating >= 4) return { color: 'text-amber-600', bg: 'bg-amber-100', label: 'Decent day — keep going!', icon: 'TrendingUp' };
+        return { color: 'text-red-600', bg: 'bg-red-100', label: 'Room for improvement', icon: 'Heart' };
+      };
+
+      const status = getDayStatus();
+
+      return (
+        <div className="space-y-4 fade-in">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-800 mb-1">My Day</h1>
+            <p className="text-base text-gray-500">Track what you eat today</p>
+          </div>
+
+          {/* Daily summary */}
+          <div className={`bg-white rounded-2xl p-5 shadow-sm border border-sage-100`}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className={`${status.bg} p-2 rounded-xl`}>
+                <Icon name={status.icon} size={20} className={status.color} />
+              </div>
+              <p className={`text-base font-semibold ${status.color}`}>{status.label}</p>
+            </div>
+            <div className="grid grid-cols-3 gap-3">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-gray-800">{totalCalories}</p>
+                <p className="text-sm text-gray-500">calories</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-gray-800">{avgRating}</p>
+                <p className="text-sm text-gray-500">avg rating</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-gray-800">{meals.length}</p>
+                <p className="text-sm text-gray-500">meals</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Add meal button */}
+          {!showAddForm ? (
+            <button
+              onClick={() => setShowAddForm(true)}
+              className="w-full bg-sage-500 text-white rounded-2xl py-4 text-base font-semibold shadow-sm active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+            >
+              <Icon name="Plus" size={20} />
+              Log a Meal
+            </button>
+          ) : (
+            <form onSubmit={addMeal} className="bg-white rounded-2xl p-5 shadow-sm border border-sage-100 space-y-4 slide-up">
+              <div className="flex justify-between items-center">
+                <h3 className="text-lg font-semibold text-gray-800">Log a meal</h3>
+                <button type="button" onClick={() => setShowAddForm(false)} className="text-gray-400">
+                  <Icon name="X" size={20} />
+                </button>
+              </div>
+
+              <input
+                type="text"
+                value={newMealName}
+                onChange={(e) => setNewMealName(e.target.value)}
+                placeholder="What did you eat?"
+                className="w-full bg-sage-50 rounded-xl px-4 py-3.5 text-base border border-sage-200 focus:border-sage-400 focus:ring-2 focus:ring-sage-200 transition-all"
+                autoFocus
+              />
+
+              <input
+                type="number"
+                value={newMealCalories}
+                onChange={(e) => setNewMealCalories(e.target.value)}
+                placeholder="Estimated calories (optional)"
+                className="w-full bg-sage-50 rounded-xl px-4 py-3.5 text-base border border-sage-200 focus:border-sage-400 focus:ring-2 focus:ring-sage-200 transition-all"
+                inputMode="numeric"
+              />
+
+              <div>
+                <label className="text-sm font-medium text-gray-600 mb-2 block">Health rating: {newMealRating}/10</label>
+                <input
+                  type="range"
+                  min="1"
+                  max="10"
+                  value={newMealRating}
+                  onChange={(e) => setNewMealRating(parseInt(e.target.value))}
+                  className="w-full accent-sage-500"
+                />
+                <div className="flex justify-between text-xs text-gray-400 mt-1">
+                  <span>Not great</span>
+                  <span>Super healthy</span>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={!newMealName.trim()}
+                className="w-full bg-sage-500 text-white rounded-xl py-3.5 text-base font-semibold disabled:opacity-40 active:scale-[0.98] transition-all"
+              >
+                Add Meal
+              </button>
+            </form>
+          )}
+
+          {/* Meal list */}
+          {meals.length > 0 && (
+            <div className="space-y-2">
+              {meals.map(meal => {
+                const mealColor = meal.rating >= 7 ? 'border-l-green-400' : meal.rating >= 4 ? 'border-l-amber-400' : 'border-l-red-400';
+                return (
+                  <div key={meal.id} className={`bg-white rounded-xl p-4 shadow-sm border border-sage-100 border-l-4 ${mealColor} flex items-center justify-between fade-in`}>
+                    <div>
+                      <p className="text-base font-medium text-gray-800">{meal.name}</p>
+                      <div className="flex gap-3 mt-1">
+                        <span className="text-sm text-gray-500">{meal.time}</span>
+                        {meal.calories > 0 && <span className="text-sm text-gray-500">{meal.calories} cal</span>}
+                        <span className="text-sm text-gray-500">Rating: {meal.rating}/10</span>
+                      </div>
+                    </div>
+                    <button onClick={() => removeMeal(meal.id)} className="text-gray-300 active:text-red-400 p-1">
+                      <Icon name="Trash2" size={18} />
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // ══════════════════════════════════
+    // ── GUIDE TAB ──
+    // ══════════════════════════════════
+    function GuideTab() {
+      const [openSection, setOpenSection] = useState(null);
+      const [waterGlasses, setWaterGlasses] = useState(0);
+      const waterTarget = 8;
+
+      const toggleSection = (section) => {
+        setOpenSection(prev => prev === section ? null : section);
+      };
+
+      return (
+        <div className="space-y-4 fade-in">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-800 mb-1">Quick Guide</h1>
+            <p className="text-base text-gray-500">Handy references at your fingertips</p>
+          </div>
+
+          {/* Portion sizes */}
+          <CollapsibleCard
+            title="Portion Size Guide"
+            icon="Ruler"
+            isOpen={openSection === 'portions'}
+            onToggle={() => toggleSection('portions')}
+          >
+            <div className="space-y-3">
+              {[
+                { emoji: '✊', part: 'Your fist', food: 'Carbs (rice, pasta, potatoes)', detail: '~200 calories worth' },
+                { emoji: '🤚', part: 'Your palm', food: 'Protein (chicken, fish, tofu)', detail: '~150-200 calories worth' },
+                { emoji: '👍', part: 'Your thumb', food: 'Fats (butter, oil, cheese)', detail: '~100 calories worth' },
+                { emoji: '🤲', part: 'Two handfuls', food: 'Vegetables & salad', detail: 'As much as you want!' },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 p-3 bg-sage-50 rounded-xl">
+                  <span className="text-2xl">{item.emoji}</span>
+                  <div>
+                    <p className="text-base font-semibold text-gray-800">{item.part}</p>
+                    <p className="text-base text-gray-600">{item.food}</p>
+                    <p className="text-sm text-gray-400">{item.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CollapsibleCard>
+
+          {/* Plate model */}
+          <CollapsibleCard
+            title="The Perfect Plate"
+            icon="CircleDot"
+            isOpen={openSection === 'plate'}
+            onToggle={() => toggleSection('plate')}
+          >
+            <div className="flex flex-col items-center gap-4">
+              {/* Visual plate */}
+              <div className="relative w-52 h-52">
+                <svg viewBox="0 0 200 200" className="w-full h-full">
+                  {/* Plate border */}
+                  <circle cx="100" cy="100" r="95" fill="none" stroke="#e5e7eb" strokeWidth="2" />
+                  {/* Vegetables - top half */}
+                  <path d="M 100 5 A 95 95 0 0 1 195 100 L 100 100 Z" fill="#bbf7d0" />
+                  <path d="M 5 100 A 95 95 0 0 1 100 5 L 100 100 Z" fill="#bbf7d0" />
+                  {/* Protein - bottom left */}
+                  <path d="M 100 100 L 5 100 A 95 95 0 0 0 100 195 Z" fill="#fde68a" />
+                  {/* Carbs - bottom right */}
+                  <path d="M 100 100 L 100 195 A 95 95 0 0 0 195 100 Z" fill="#fed7aa" />
+                  {/* Divider lines */}
+                  <line x1="100" y1="5" x2="100" y2="195" stroke="white" strokeWidth="3" />
+                  <line x1="5" y1="100" x2="195" y2="100" stroke="white" strokeWidth="3" />
+                </svg>
+                <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center">
+                  <p className="text-sm font-bold text-green-800">Vegetables</p>
+                  <p className="text-xs text-green-700">50%</p>
+                </div>
+                <div className="absolute bottom-8 left-6 text-center">
+                  <p className="text-sm font-bold text-amber-800">Protein</p>
+                  <p className="text-xs text-amber-700">25%</p>
+                </div>
+                <div className="absolute bottom-8 right-6 text-center">
+                  <p className="text-sm font-bold text-orange-800">Carbs</p>
+                  <p className="text-xs text-orange-700">25%</p>
+                </div>
+              </div>
+              <p className="text-base text-gray-600 text-center leading-relaxed">
+                Fill half your plate with vegetables, a quarter with lean protein, and a quarter with complex carbs.
+              </p>
+            </div>
+          </CollapsibleCard>
+
+          {/* Water tracker */}
+          <div className="bg-white rounded-2xl p-5 shadow-sm border border-sage-100">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <Icon name="Droplets" size={20} className="text-blue-400" />
+                <h3 className="text-lg font-semibold text-gray-800">Water Tracker</h3>
+              </div>
+              <span className="text-base font-medium text-blue-500">{waterGlasses}/{waterTarget}</span>
+            </div>
+
+            <div className="grid grid-cols-8 gap-2 mb-3">
+              {Array.from({ length: waterTarget }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setWaterGlasses(i + 1 === waterGlasses ? i : i + 1)}
+                  className={`aspect-square rounded-xl flex items-center justify-center transition-all active:scale-90 ${
+                    i < waterGlasses ? 'bg-blue-100 border-2 border-blue-300' : 'bg-gray-50 border-2 border-gray-200'
+                  }`}
+                >
+                  <Icon name="GlassWater" size={18} className={i < waterGlasses ? 'text-blue-500' : 'text-gray-300'} />
+                </button>
+              ))}
+            </div>
+
+            <div className="w-full bg-gray-100 rounded-full h-2.5">
+              <div
+                className="bg-blue-400 h-2.5 rounded-full transition-all duration-300"
+                style={{ width: `${Math.min((waterGlasses / waterTarget) * 100, 100)}%` }}
+              />
+            </div>
+
+            {waterGlasses >= waterTarget ? (
+              <p className="text-sm text-blue-600 mt-2 text-center font-medium">
+                You hit your water goal! Well done!
+              </p>
+            ) : (
+              <p className="text-sm text-gray-400 mt-2 text-center">
+                {waterTarget - waterGlasses} more glass{waterTarget - waterGlasses !== 1 ? 'es' : ''} to go. You've got this!
+              </p>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    function CollapsibleCard({ title, icon, isOpen, onToggle, children }) {
+      return (
+        <div className="bg-white rounded-2xl shadow-sm border border-sage-100 overflow-hidden">
+          <button
+            onClick={onToggle}
+            className="w-full flex items-center justify-between p-5 active:bg-sage-50 transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <Icon name={icon} size={20} className="text-sage-500" />
+              <span className="text-lg font-semibold text-gray-800">{title}</span>
+            </div>
+            <Icon
+              name="ChevronDown"
+              size={20}
+              className={`text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+            />
+          </button>
+          <div
+            className="smooth-expand"
+            style={{ maxHeight: isOpen ? '600px' : '0', opacity: isOpen ? 1 : 0 }}
+          >
+            <div className="px-5 pb-5">
+              {children}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // ── Render ──
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
