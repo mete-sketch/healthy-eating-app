@@ -265,36 +265,69 @@
           return;
         }
 
-        const recognition = new SpeechRecognition();
-        recognition.lang = 'en-GB';
-        recognition.interimResults = false;
-        recognition.maxAlternatives = 1;
-        recognition.continuous = false;
+        // Request microphone permission first on iOS Safari
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+          navigator.mediaDevices.getUserMedia({ audio: true })
+            .then((stream) => {
+              // Got permission — stop the stream immediately (we just needed permission)
+              stream.getTracks().forEach(track => track.stop());
+              startRecognition();
+            })
+            .catch((err) => {
+              console.error('Mic permission error:', err);
+              if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+                setError('Microphone access denied. Go to Settings → Safari → Microphone to allow.');
+              } else {
+                // Try starting recognition anyway — some browsers don't need getUserMedia
+                startRecognition();
+              }
+            });
+        } else {
+          startRecognition();
+        }
+      };
 
-        recognition.onresult = (event) => {
-          const transcript = event.results[0][0].transcript;
-          setQuery(transcript);
-          setIsListening(false);
-          setLoadingSource('voice');
-          setTimeout(() => analyzeFood(transcript), 300);
-        };
+      const startRecognition = () => {
+        try {
+          const recognition = new SpeechRecognition();
+          recognition.lang = 'en-GB';
+          recognition.interimResults = false;
+          recognition.maxAlternatives = 1;
+          recognition.continuous = false;
 
-        recognition.onerror = (event) => {
-          setIsListening(false);
-          if (event.error === 'not-allowed') {
-            setError('Microphone access denied. Check your browser settings.');
-          } else if (event.error !== 'no-speech' && event.error !== 'aborted') {
-            setError('Voice input failed. Please try again or type your food.');
-          }
-        };
+          recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            setQuery(transcript);
+            setIsListening(false);
+            setLoadingSource('voice');
+            setTimeout(() => analyzeFood(transcript), 300);
+          };
 
-        recognition.onend = () => setIsListening(false);
+          recognition.onerror = (event) => {
+            console.error('Speech recognition error:', event.error);
+            setIsListening(false);
+            if (event.error === 'not-allowed') {
+              setError('Microphone access denied. Go to Settings → Safari → Microphone to allow.');
+            } else if (event.error === 'network') {
+              setError('Voice needs an internet connection. Check your signal and try again.');
+            } else if (event.error === 'no-speech') {
+              setError('No speech detected. Tap the mic and speak clearly.');
+            } else if (event.error !== 'aborted') {
+              setError('Voice input failed (' + event.error + '). Try again or type your food.');
+            }
+          };
 
-        recognitionRef.current = recognition;
-        recognition.start();
-        setIsListening(true);
-        setError('');
-        setResult(null);
+          recognition.onend = () => setIsListening(false);
+
+          recognitionRef.current = recognition;
+          recognition.start();
+          setIsListening(true);
+          setError('');
+          setResult(null);
+        } catch (err) {
+          console.error('Recognition start error:', err);
+          setError('Could not start voice input. Please type your food instead.');
+        }
       };
 
       // ── Photo input ──
