@@ -299,6 +299,7 @@
     // ══════════════════════════════════
     function CheckFoodTab({ onAddMeal }) {
       const [query, setQuery] = useState('');
+      const [amount, setAmount] = useState('');
       const [loading, setLoading] = useState(false);
       const [loadingSource, setLoadingSource] = useState('text');
       const [result, setResult] = useState(null);
@@ -313,6 +314,10 @@
       const analyzeFood = async (foodText) => {
         const food = foodText || query.trim();
         if (!food) return;
+        // Combine food with amount if provided
+        const amountStr = amount.trim();
+        const fullQuery = amountStr ? `${amountStr} ${food}` : food;
+
         setLoading(true);
         setLoadingSource('text');
         setError('');
@@ -323,7 +328,7 @@
           const response = await fetch(API_PROXY_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ food }),
+            body: JSON.stringify({ food: fullQuery }),
           });
           if (!response.ok) {
             const errData = await response.json().catch(() => ({}));
@@ -480,66 +485,81 @@
             <p className="text-base text-gray-500">Type, speak, or snap a photo</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex gap-2 items-center">
-            {/* Mic button */}
-            {SpeechRecognition && (
+          <form onSubmit={handleSubmit} className="space-y-2">
+            <div className="flex gap-2 items-center">
+              {/* Mic button */}
+              {SpeechRecognition && (
+                <button
+                  type="button"
+                  onClick={toggleVoice}
+                  disabled={loading}
+                  className={`rounded-xl p-3 shadow-sm transition-all active:scale-95 flex-shrink-0 ${
+                    isListening
+                      ? 'bg-red-50 border-2 border-red-300 text-red-500 pulse-ring'
+                      : 'bg-white border border-sage-200 text-sage-600 disabled:opacity-40'
+                  }`}
+                >
+                  <Icon name={isListening ? 'MicOff' : 'Mic'} size={20} />
+                </button>
+              )}
+
+              {/* Text input */}
+              <input
+                ref={inputRef}
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder={isListening ? 'Listening...' : 'e.g. eggs, cheese, rice...'}
+                className="flex-1 min-w-0 bg-white rounded-xl px-4 py-3 text-base border border-sage-200 focus:border-sage-400 focus:ring-2 focus:ring-sage-200 transition-all shadow-sm"
+                disabled={loading || isListening}
+              />
+
+              {/* Hidden file input */}
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                capture="environment"
+                className="hidden"
+                onChange={handleImageSelected}
+              />
+
+              {/* Camera button */}
               <button
                 type="button"
-                onClick={toggleVoice}
+                onClick={() => fileInputRef.current?.click()}
                 disabled={loading}
-                className={`rounded-xl p-3 shadow-sm transition-all active:scale-95 flex-shrink-0 ${
-                  isListening
-                    ? 'bg-red-50 border-2 border-red-300 text-red-500 pulse-ring'
-                    : 'bg-white border border-sage-200 text-sage-600 disabled:opacity-40'
-                }`}
+                className="bg-white border border-sage-200 text-sage-600 rounded-xl p-3 shadow-sm transition-all active:scale-95 disabled:opacity-40 flex-shrink-0"
               >
-                <Icon name={isListening ? 'MicOff' : 'Mic'} size={20} />
+                <Icon name="Camera" size={20} />
               </button>
-            )}
+            </div>
 
-            {/* Text input */}
-            <input
-              ref={inputRef}
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={isListening ? 'Listening...' : 'e.g. chicken salad, pizza...'}
-              className="flex-1 min-w-0 bg-white rounded-xl px-4 py-3 text-base border border-sage-200 focus:border-sage-400 focus:ring-2 focus:ring-sage-200 transition-all shadow-sm"
-              disabled={loading || isListening}
-            />
+            {/* Amount row */}
+            <div className="flex gap-2 items-center">
+              <input
+                type="text"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                placeholder="Amount (e.g. 3, 150g, 2 slices)"
+                className="flex-1 min-w-0 bg-white rounded-xl px-4 py-3 text-base border border-sage-200 focus:border-sage-400 focus:ring-2 focus:ring-sage-200 transition-all shadow-sm"
+                disabled={loading || isListening}
+                inputMode="text"
+              />
 
-            {/* Hidden file input */}
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept="image/*"
-              capture="environment"
-              className="hidden"
-              onChange={handleImageSelected}
-            />
-
-            {/* Camera button */}
-            <button
-              type="button"
-              onClick={() => fileInputRef.current?.click()}
-              disabled={loading}
-              className="bg-white border border-sage-200 text-sage-600 rounded-xl p-3 shadow-sm transition-all active:scale-95 disabled:opacity-40 flex-shrink-0"
-            >
-              <Icon name="Camera" size={20} />
-            </button>
-
-            {/* Submit button */}
-            <button
-              type="submit"
-              disabled={loading || !query.trim()}
-              className="bg-sage-500 text-white rounded-xl p-3 font-medium text-base shadow-sm disabled:opacity-40 active:scale-95 transition-all flex-shrink-0"
-            >
-              {loading ? (
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              ) : (
-                <Icon name="ArrowRight" size={20} />
-              )}
-            </button>
+              {/* Submit button */}
+              <button
+                type="submit"
+                disabled={loading || !query.trim()}
+                className="bg-sage-500 text-white rounded-xl p-3 font-medium text-base shadow-sm disabled:opacity-40 active:scale-95 transition-all flex-shrink-0"
+              >
+                {loading ? (
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                ) : (
+                  <Icon name="ArrowRight" size={20} />
+                )}
+              </button>
+            </div>
           </form>
 
           {/* Listening indicator */}
@@ -928,10 +948,10 @@
           >
             <div className="space-y-3">
               {[
-                { emoji: '✊', part: 'Your fist', food: 'Carbs (rice, pasta, potatoes)', detail: '~200 calories worth' },
-                { emoji: '🤚', part: 'Your palm', food: 'Protein (chicken, fish, tofu)', detail: '~150-200 calories worth' },
-                { emoji: '👍', part: 'Your thumb', food: 'Fats (butter, oil, cheese)', detail: '~100 calories worth' },
-                { emoji: '🤲', part: 'Two handfuls', food: 'Vegetables & salad', detail: 'As much as you want!' },
+                { emoji: '✊', part: 'Your fist (~150g)', food: 'Carbs (rice, pasta, potatoes)', detail: '~200 calories worth' },
+                { emoji: '🤚', part: 'Your palm (~120g)', food: 'Protein (chicken, fish, tofu)', detail: '~150-200 calories worth' },
+                { emoji: '👍', part: 'Your thumb (~15g)', food: 'Fats (butter, oil, cheese)', detail: '~100 calories worth' },
+                { emoji: '🤲', part: 'Two handfuls (~80g)', food: 'Vegetables & salad', detail: 'As much as you want!' },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 p-3 bg-sage-50 rounded-xl">
                   <span className="text-2xl">{item.emoji}</span>
