@@ -543,6 +543,36 @@
             </div>
           </div>
 
+          {/* Macros — shown when available (photo analysis) */}
+          {(result.protein || result.carbs || result.fat) && (
+            <div className="bg-white rounded-2xl p-4 shadow-sm border border-sage-100">
+              <div className="flex items-center gap-2 mb-3">
+                <Icon name="PieChart" size={18} className="text-sage-500" />
+                <span className="text-sm font-medium text-gray-500">Macro Breakdown</span>
+              </div>
+              <div className="grid grid-cols-3 gap-3">
+                {result.protein && (
+                  <div className="text-center bg-blue-50 rounded-xl p-3">
+                    <p className="text-lg font-bold text-blue-700">{result.protein}</p>
+                    <p className="text-xs text-blue-500 font-medium">Protein</p>
+                  </div>
+                )}
+                {result.carbs && (
+                  <div className="text-center bg-amber-50 rounded-xl p-3">
+                    <p className="text-lg font-bold text-amber-700">{result.carbs}</p>
+                    <p className="text-xs text-amber-500 font-medium">Carbs</p>
+                  </div>
+                )}
+                {result.fat && (
+                  <div className="text-center bg-orange-50 rounded-xl p-3">
+                    <p className="text-lg font-bold text-orange-700">{result.fat}</p>
+                    <p className="text-xs text-orange-500 font-medium">Fat</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
           {/* Healthier alternative */}
           {result.alternative && (
             <div className="bg-sage-50 rounded-2xl p-4 border border-sage-200">
