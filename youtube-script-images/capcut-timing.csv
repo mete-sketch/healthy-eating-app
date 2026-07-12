@@ -1,0 +1,221 @@
+order,image_file,show_at,duration_sec,script_line
+1,0:00.png,0:00,3,Sometime this week you're going to sign up for something.
+2,0:03.png,0:03,4,"It'll take 30 seconds, one thumb, Apple Pay, done."
+3,0:07.png,0:07,1,Now try to leave.
+4,0:08.png,0:08,2,The cancel button isn't in the app.
+5,0:10.png,0:10,4,"It's on the website, desktop only, behind a menu called manage,"
+6,0:14.png,0:14,3,"inside a menu called settings, then a chat window,"
+7,0:17.png,0:17,4,"then a discount, then three screens asking if you're sure."
+8,0:21.png,0:21,4,"Signing up took 30 seconds, cancelling will take 30 minutes"
+9,0:25.png,0:25,2,"and that gap is not an accident, or is it?"
+10,0:27.png,0:27,3,Because the real answer is stranger than malice.
+11,0:30.png,0:30,2,There are three reasons that Maize exists
+12,0:32.png,0:32,3,and almost nobody talks about the third one.
+13,0:35.png,0:35,2,This is sold by design.
+14,0:37.png,0:37,1,Why people buy.
+15,0:38.png,0:38,3,From the supermarket shelf to the seven-figure software deal.
+16,0:41.png,0:41,4,Start with the receipts because we now have them under oath.
+17,0:45.png,0:45,1,Amazon Prime.
+18,0:46.png,0:46,2,Joining takes one click.
+19,0:48.png,0:48,3,"Leaving took four pages, six clicks, 15 options,"
+20,0:51.png,0:51,2,"discount offers, benefit reminders."
+21,0:53.png,0:53,1,Are you sure screens?
+22,0:54.png,0:54,1,That's not my count.
+23,0:55.png,0:55,4,That's the count from the federal regulator that sued them.
+24,0:59.png,0:59,3,And Amazon's own staff had a name for this flow.
+25,1:02.png,1:02,2,"The Iliad, as in Homer,"
+26,1:04.png,1:04,3,as in the epic famous for taking 10 years to get to the point.
+27,1:07.png,1:07,1,Think about that.
+28,1:08.png,1:08,2,Somebody named it.
+29,1:10.png,1:10,4,A flow that drifts into existence by accident does not get a code name.
+30,1:14.png,1:14,1,Here's what the Iliad did.
+31,1:15.png,1:15,4,"After it launched in 2017, cancellations dropped 14%,"
+32,1:19.png,1:19,3,"not because customers got happier,"
+33,1:22.png,1:22,2,because fewer of them made it out.
+34,1:24.png,1:24,3,"In June 2023, the Federal Trade Commission sued."
+35,1:27.png,1:27,5,"In September 2025, two days into the trial, Amazon settled."
+36,1:32.png,1:32,1,Two and a half billion dollars.
+37,1:33.png,1:33,2,A billion in penalties.
+38,1:35.png,1:35,3,A billion and a half back to 35 million customers.
+39,1:38.png,1:38,3,And a court order to add something radical.
+40,1:41.png,1:41,1,A clear button that says no.
+41,1:42.png,1:42,3,Facebook ran the softer version.
+42,1:45.png,1:45,2,Try deactivating your account.
+43,1:47.png,1:47,2,It shows you photos of your friends.
+44,1:49.png,1:49,1,So-and-so will miss you.
+45,1:50.png,1:50,3,Persuasion to the last pixel.
+46,1:53.png,1:53,2,And gyms wrote the original playbook.
+47,1:55.png,1:55,4,"For years, America's biggest gym chain accepted exactly two ways to cancel."
+48,1:59.png,1:59,4,Show up in person at the specific club where you signed up.
+49,2:03.png,2:03,1,Or post a letter.
+50,2:04.png,2:04,4,"In the age of one tap everything, leaving the gym required a stamp."
+51,2:08.png,2:08,3,Regulators did write a rule for all of this.
+52,2:11.png,2:11,2,It basically said one thing.
+53,2:13.png,2:13,2,Cancelling must be as easy as signing up.
+54,2:15.png,2:15,4,A court threw it out six days before it took effect on paperwork grounds.
+55,2:19.png,2:19,2,"As of this year, they're trying again."
+56,2:21.png,2:21,4,"Now, every video about this topic tells you the same story."
+57,2:25.png,2:25,1,Evil designers.
+58,2:26.png,2:26,1,Dark patterns.
+59,2:27.png,2:27,2,Malice all the way down.
+60,2:29.png,2:29,2,"And sometimes, Iliad, that's exactly right."
+61,2:31.png,2:31,2,But here's the part nobody talks about.
+62,2:33.png,2:33,2,There are three species of exit.
+63,2:35.png,2:35,1,Not one.
+64,2:36.png,2:36,1,The first is the trap.
+65,2:37.png,2:37,1,Designed.
+66,2:38.png,2:38,1,Tested.
+67,2:38b.png,2:39,1,Named after Greek epics.
+68,2:40.png,2:40,2,The second is the honest exit.
+69,2:42.png,2:42,1,Rare but real.
+70,2:43.png,2:43,1,One page.
+71,2:43b.png,2:44,1,One click.
+72,2:44.png,2:45,1,A genuine goodbye.
+73,2:45.png,2:46,3,And the third species explains most of your bad experiences.
+74,2:49.png,2:49,1,The neglected exit.
+75,2:50.png,2:50,2,Nobody owns the cancellation page.
+76,2:52.png,2:52,3,Nobody ever got promoted for making it smoother.
+77,2:55.png,2:55,3,Every roadmap has a workstream for sign-up conversion.
+78,2:58.png,2:58,5,Nobody in the history of planning meetings has demanded a more delightful goodbye.
+79,3:03.png,3:03,2,So the page just rots.
+80,3:05.png,3:05,1,Broken links.
+81,3:06.png,3:06,1,Forms that error out.
+82,3:07.png,3:07,3,A phone number that rings and rings.
+83,3:10.png,3:10,1,Not malice.
+84,3:10b.png,3:11,1,An orphan.
+85,3:11.png,3:12,2,And you can tell the species apart with a trained eye.
+86,3:14.png,3:14,2,Neglect looks stale.
+87,3:16.png,3:16,1,Like nobody has touched it in years.
+88,3:17.png,3:17,4,A trap looks polished in exactly the wrong direction.
+89,3:21.png,3:21,2,Every button that keeps you is big and bright.
+90,3:23.png,3:23,2,The one that frees you is grey text.
+91,3:25.png,3:25,1,Size 10.
+92,3:26.png,3:26,2,Bottom left.
+93,3:28.png,3:28,1,So why do traps keep winning?
+94,3:29.png,3:29,2,Follow the dashboard.
+95,3:31.png,3:31,3,Inside every subscription business there's a number called save rate.
+96,3:34.png,3:34,4,The percentage of people who tried to leave and got talked out of it.
+97,3:38.png,3:38,1,It's measured weekly.
+98,3:39.png,3:39,1,It's celebrated.
+99,3:40.png,3:40,3,And somewhere it's attached to a bonus.
+100,3:43.png,3:43,2,Now here's the number that isn't on any dashboard.
+101,3:45.png,3:45,1,Resentment.
+102,3:46.png,3:46,3,Mildly unhappy customers leave quietly.
+103,3:49.png,3:49,1,They forget you.
+104,3:50.png,3:50,2,Trapped customers leave furious.
+105,3:52.png,3:52,1,And they recruit.
+106,3:53.png,3:53,1,They warn their friends.
+107,3:54.png,3:54,1,Their followers.
+108,3:55.png,3:55,2,Their procurement team.
+109,3:57.png,3:57,4,Charlie Munger spent his whole life warning about exactly this mechanism.
+110,4:01.png,4:01,2,Show me the incentive and I'll show you the outcome.
+111,4:03.png,4:03,2,The dashboard reward saves.
+112,4:05.png,4:05,2,The dashboard never sees the rage.
+113,4:07.png,4:07,5,So the machine quietly optimises for trapped and angry.
+114,4:12.png,4:12,1,One more thing about that machine.
+115,4:13.png,4:13,3,The sign up page and the cancel page are built by the same team.
+116,4:16.png,4:16,1,Same tools.
+117,4:17.png,4:17,1,A B-test.
+118,4:18.png,4:18,1,Button colours.
+119,4:19.png,4:19,1,Copy tweaks.
+120,4:20.png,4:20,3,The difference is whose side the persuasion is on.
+121,4:23.png,4:23,3,On the way in you and the company roughly want the same thing.
+122,4:26.png,4:26,7,The cancel page is the only page where your interests and theirs openly conflict.
+123,4:33.png,4:33,2,Persuasion doesn't stop at the exit.
+124,4:35.png,4:35,1,It switches sides.
+125,4:36.png,4:36,4,Every trick that got you in running in reverse to keep you from leaving.
+126,4:40.png,4:40,1,Now scale it up.
+127,4:41.png,4:41,3,Because everything so far was pocket money.
+128,4:44.png,4:44,2,In business software the maze isn't three screens.
+129,4:46.png,4:46,2,It's a contract.
+130,4:48.png,4:48,3,The subscription renews automatically for a year.
+131,4:51.png,4:51,3,Unless you give notice 90 days in advance.
+132,4:54.png,4:54,1,In writing.
+133,4:55.png,4:55,1,Per clause 14.
+134,4:56.png,4:56,3,Miss that window by a day you own another year.
+135,4:59.png,4:59,1,Or this one.
+136,5:00.png,5:00,4,To cancel please book a call with your customer success manager.
+137,5:04.png,5:04,2,A meeting with one agenda item.
+138,5:06.png,5:06,1,Talking you out of the meeting.
+139,5:07.png,5:07,1,Or the quiet one.
+140,5:08.png,5:08,2,Of course you can leave.
+141,5:10.png,5:10,2,Your data export will be ready in six to eight weeks.
+142,5:12.png,5:12,2,Your own numbers held politely hostage.
+143,5:14.png,5:14,4,But here's the uncomfortable bit where this video breaks from the genre.
+144,5:18.png,5:18,3,Easy exit isn't automatically on your side either.
+145,5:21.png,5:21,3,Some products genuinely need time.
+146,5:24.png,5:24,3,Ad campaigns need data before anyone can optimise them.
+147,5:27.png,5:27,3,Nobody honest can show you results in three days.
+148,5:30.png,5:30,4,A vendor that lets you walk in week one before the thing could possibly have worked.
+149,5:34.png,5:34,1,Isn't being noble.
+150,5:35.png,5:35,4,It's happy to take a month of your money and let you fail.
+151,5:39.png,5:39,3,So the test isn't friction versus no friction.
+152,5:42.png,5:42,2,The test is two questions.
+153,5:44.png,5:44,2,Was the friction agreed in daylight?
+154,5:46.png,5:46,1,On the table.
+155,5:47.png,5:47,1,Up front.
+156,5:48.png,5:48,2,Not discovered in clause 14.
+157,5:50.png,5:50,1,Two.
+158,5:50b.png,5:51,2,Does it expire when the value arrives?
+159,5:53.png,5:53,3,An annual contract with milestones set on day one.
+160,5:56.png,5:56,1,By week two you'll see this.
+161,5:57.png,5:57,1,By month two you'll see that.
+162,5:58.png,5:58,1,Is commitment.
+163,5:59.png,5:59,4,The identical contract with no milestones is a cage with a dashboard.
+164,6:03.png,6:03,3,And that test cuts back at the seller.
+165,6:06.png,6:06,5,"If your product takes six months to show value, friction isn't protecting the journey."
+166,6:11.png,6:11,3,It's compensating for a design failure.
+167,6:14.png,6:14,2,So what do you actually do with all this?
+168,6:16.png,6:16,1,One habit.
+169,6:17.png,6:17,2,Check the exit before you enter.
+170,6:19.png,6:19,1,Before the free trial.
+171,6:20.png,6:20,2,Before the signature.
+172,6:22.png,6:22,2,Search the product name plus the word cancel.
+173,6:24.png,6:24,1,Count the steps.
+174,6:25.png,6:25,3,Read what former customers went through on the way out.
+175,6:28.png,6:28,2,It works on a $9 app.
+176,6:30.png,6:30,2,"It works on a $90,000 contract."
+177,6:32.png,6:32,1,Same test.
+178,6:33.png,6:33,4,Because the cancellation flow is the one page a company builds.
+179,6:37.png,6:37,3,For the moment your interests and theirs collide.
+180,6:40.png,6:40,1,It predicts everything.
+181,6:41.png,6:41,1,Support.
+182,6:42.png,6:42,1,Renewals.
+183,6:43.png,6:43,3,How they'll treat you when there's nothing left to sell you.
+184,6:46.png,6:46,2,The exit is part of the product.
+185,6:48.png,6:48,1,Time to write it down.
+186,6:49.png,6:49,2,This channel runs on numbered principles.
+187,6:51.png,6:51,2,You're meant to steal them.
+188,6:53.png,6:53,1,Principle number one.
+189,6:54.png,6:54,3,Friction you agreed to is commitment.
+190,6:57.png,6:57,2,Friction you discover is a warning.
+191,6:59.png,6:59,2,Sometimes the warning says trap.
+192,7:01.png,7:01,3,Sometimes it just says nobody owns the exit.
+193,7:04.png,7:04,3,And nobody will own your problems after the sale either.
+194,7:07.png,7:07,1,You don't need to know which.
+195,7:08.png,7:08,3,Either way you learned who you're dealing with before it cost you.
+196,7:11.png,7:11,3,And because a principle you can't invert is just a poster.
+197,7:14.png,7:14,3,Friction is legitimate when it's agreed up front.
+198,7:17.png,7:17,1,Tied to milestones.
+199,7:18.png,7:18,3,And expiring the moment value arrives.
+200,7:21.png,7:21,1,For the sellers watching.
+201,7:22.png,7:22,3,A customer kept by discovered friction isn't saved.
+202,7:25.png,7:25,1,That's churn deferred.
+203,7:26.png,7:26,2,With interest.
+204,7:28.png,7:28,1,They come back angrier.
+205,7:29.png,7:29,1,Louder.
+206,7:29b.png,7:30,1,And with an audience.
+207,7:31.png,7:31,3,Somewhere this week you'll hit another 30 second sign up.
+208,7:34.png,7:34,3,This time spend one extra minute first.
+209,7:37.png,7:37,1,Look at the door you'd leave through.
+210,7:38.png,7:38,3,It will tell you more than the sales page ever will.
+211,7:41.png,7:41,1,Next episode.
+212,7:42.png,7:42,3,The countdown timer that's lying to you.
+213,7:45.png,7:45,2,Only two rooms left at this price.
+214,7:47.png,7:47,2,The deal ends at midnight.
+215,7:49.png,7:49,3,And the end of quarter discount that somehow exists every quarter.
+216,7:52.png,7:52,4,Manufactured scarcity from booking sites to enterprise sales.
+217,7:56.png,7:56,2,Principle number two lives in that one.
+218,7:58.png,7:58,3,Subscribe if you're collecting the set.
+219,8:01.png,8:01,4,Drop the worst cancellation flow you've ever fought in the comments.
+220,8:05.png,8:05,4,The most painful one gets a full teardown in a future episode.
