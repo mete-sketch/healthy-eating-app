@@ -1,0 +1,1327 @@
+{
+  "style_profile": "16:9 widescreen, intentionally bad amateur MS Paint drawing, simple childish stick-figure style, wobbly hand-drawn thick uneven black outlines, flat solid colors only, completely white background, mostly empty space, centered composition, dot eyes, round heads, straight-line stick bodies, basic squares and circles, crude hand-lettered labels, zero shading, zero 3D, zero cinematic lighting.",
+  "model": "nano_banana_2",
+  "aspect_ratio": "16:9",
+  "scenes": [
+    {
+      "i": 1,
+      "t": "0:00",
+      "line": "Sometime this week you're going to sign up for something.",
+      "scene": "a single stick figure holding a phone, a big button on the phone screen reads SIGN UP"
+    },
+    {
+      "i": 2,
+      "t": "0:03",
+      "line": "It'll take 30 seconds, one thumb, Apple Pay, done.",
+      "scene": "a big thumb tapping a phone, a small clock showing 30s, a tiny square labeled PAY"
+    },
+    {
+      "i": 3,
+      "t": "0:07",
+      "line": "Now try to leave.",
+      "scene": "a confused stick figure standing in front of a closed door"
+    },
+    {
+      "i": 4,
+      "t": "0:08",
+      "line": "The cancel button isn't in the app.",
+      "scene": "a phone screen with a magnifying glass over it, no cancel button, a shrugging stick figure"
+    },
+    {
+      "i": 5,
+      "t": "0:10",
+      "line": "It's on the website, desktop only, behind a menu called manage,",
+      "scene": "a boxy desktop computer with a dropdown menu labeled MANAGE"
+    },
+    {
+      "i": 6,
+      "t": "0:14",
+      "line": "inside a menu called settings, then a chat window,",
+      "scene": "a menu box labeled SETTINGS nested inside a bigger box, a small chat speech-bubble window beside it"
+    },
+    {
+      "i": 7,
+      "t": "0:17",
+      "line": "then a discount, then three screens asking if you're sure.",
+      "scene": "a price tag labeled DISCOUNT next to three stacked pop-up boxes each reading ARE YOU SURE"
+    },
+    {
+      "i": 8,
+      "t": "0:21",
+      "line": "Signing up took 30 seconds, cancelling will take 30 minutes",
+      "scene": "two clocks side by side, left labeled 30 SEC, right labeled 30 MIN"
+    },
+    {
+      "i": 9,
+      "t": "0:25",
+      "line": "and that gap is not an accident, or is it?",
+      "scene": "a stick figure with a giant question mark floating over its head"
+    },
+    {
+      "i": 10,
+      "t": "0:27",
+      "line": "Because the real answer is stranger than malice.",
+      "scene": "a stick figure scratching its head next to a crossed-out devil face"
+    },
+    {
+      "i": 11,
+      "t": "0:30",
+      "line": "There are three reasons that Maize exists",
+      "scene": "a simple square maze with a big number 3 beside it"
+    },
+    {
+      "i": 12,
+      "t": "0:32",
+      "line": "and almost nobody talks about the third one.",
+      "scene": "a maze with numbers 1 2 3, the 3 circled, a finger pointing at it"
+    },
+    {
+      "i": 13,
+      "t": "0:35",
+      "line": "This is sold by design.",
+      "scene": "a price tag reading SOLD with the words BY DESIGN under it"
+    },
+    {
+      "i": 14,
+      "t": "0:37",
+      "line": "Why people buy.",
+      "scene": "a stick figure holding a shopping bag with a dollar-sign thought bubble"
+    },
+    {
+      "i": 15,
+      "t": "0:38",
+      "line": "From the supermarket shelf to the seven-figure software deal.",
+      "scene": "on the left a supermarket shelf with cans, on the right a paper reading $1,000,000"
+    },
+    {
+      "i": 16,
+      "t": "0:41",
+      "line": "Start with the receipts because we now have them under oath.",
+      "scene": "a very long receipt next to a stick figure with one hand raised swearing an oath"
+    },
+    {
+      "i": 17,
+      "t": "0:45",
+      "line": "Amazon Prime.",
+      "scene": "a cardboard delivery box labeled PRIME"
+    },
+    {
+      "i": 18,
+      "t": "0:46",
+      "line": "Joining takes one click.",
+      "scene": "one finger pressing a button labeled JOIN, small text 1 CLICK"
+    },
+    {
+      "i": 19,
+      "t": "0:48",
+      "line": "Leaving took four pages, six clicks, 15 options,",
+      "scene": "a stack of papers labeled 4 PAGES with many little cursor arrows around it"
+    },
+    {
+      "i": 20,
+      "t": "0:51",
+      "line": "discount offers, benefit reminders.",
+      "scene": "two tags floating, one reads DISCOUNT the other reads BENEFITS"
+    },
+    {
+      "i": 21,
+      "t": "0:53",
+      "line": "Are you sure screens?",
+      "scene": "a pop-up box reading ARE YOU SURE with an annoyed stick figure beside it"
+    },
+    {
+      "i": 22,
+      "t": "0:54",
+      "line": "That's not my count.",
+      "scene": "a stick figure pointing away with a small sign reading NOT MY COUNT"
+    },
+    {
+      "i": 23,
+      "t": "0:55",
+      "line": "That's the count from the federal regulator that sued them.",
+      "scene": "a stick figure official holding a gavel, a badge labeled FTC"
+    },
+    {
+      "i": 24,
+      "t": "0:59",
+      "line": "And Amazon's own staff had a name for this flow.",
+      "scene": "stick figure workers around a whiteboard with a messy flow chart"
+    },
+    {
+      "i": 25,
+      "t": "1:02",
+      "line": "The Iliad, as in Homer,",
+      "scene": "an unrolled scroll labeled THE ILIAD and a stick figure wearing a Greek helmet"
+    },
+    {
+      "i": 26,
+      "t": "1:04",
+      "line": "as in the epic famous for taking 10 years to get to the point.",
+      "scene": "a long winding path with a flag at the end and a sign reading 10 YEARS"
+    },
+    {
+      "i": 27,
+      "t": "1:07",
+      "line": "Think about that.",
+      "scene": "a stick figure with a hand on its chin and a thought bubble"
+    },
+    {
+      "i": 28,
+      "t": "1:08",
+      "line": "Somebody named it.",
+      "scene": "a hand with a pen writing a name tag that reads THE ILIAD"
+    },
+    {
+      "i": 29,
+      "t": "1:10",
+      "line": "A flow that drifts into existence by accident does not get a code name.",
+      "scene": "a flow chart with a name tag reading CODE NAME and the word ACCIDENT crossed out"
+    },
+    {
+      "i": 30,
+      "t": "1:14",
+      "line": "Here's what the Iliad did.",
+      "scene": "a big finger pointing at a simple chart"
+    },
+    {
+      "i": 31,
+      "t": "1:15",
+      "line": "After it launched in 2017, cancellations dropped 14%,",
+      "scene": "a bar chart with an arrow going down, labels 2017 and minus 14%"
+    },
+    {
+      "i": 32,
+      "t": "1:19",
+      "line": "not because customers got happier,",
+      "scene": "a stick figure with a flat neutral mouth next to a crossed-out smiley face"
+    },
+    {
+      "i": 33,
+      "t": "1:22",
+      "line": "because fewer of them made it out.",
+      "scene": "several stick figures stuck behind a fence with one tiny gap"
+    },
+    {
+      "i": 34,
+      "t": "1:24",
+      "line": "In June 2023, the Federal Trade Commission sued.",
+      "scene": "a calendar page reading JUNE 2023 next to a gavel"
+    },
+    {
+      "i": 35,
+      "t": "1:27",
+      "line": "In September 2025, two days into the trial, Amazon settled.",
+      "scene": "a calendar reading SEPT 2025 and two stick figures shaking hands, sign reads SETTLED"
+    },
+    {
+      "i": 36,
+      "t": "1:32",
+      "line": "Two and a half billion dollars.",
+      "scene": "a big money bag with a dollar sign labeled $2.5 BILLION"
+    },
+    {
+      "i": 37,
+      "t": "1:33",
+      "line": "A billion in penalties.",
+      "scene": "a money bag labeled $1B with a small sign reading PENALTY"
+    },
+    {
+      "i": 38,
+      "t": "1:35",
+      "line": "A billion and a half back to 35 million customers.",
+      "scene": "money with an arrow pointing to a crowd of tiny stick figures, labels $1.5B and 35M"
+    },
+    {
+      "i": 39,
+      "t": "1:38",
+      "line": "And a court order to add something radical.",
+      "scene": "a document with a big stamp reading ORDER"
+    },
+    {
+      "i": 40,
+      "t": "1:41",
+      "line": "A clear button that says no.",
+      "scene": "one large clean button in the center labeled NO"
+    },
+    {
+      "i": 41,
+      "t": "1:42",
+      "line": "Facebook ran the softer version.",
+      "scene": "a phone screen with a thumbs up and a label SOCIAL"
+    },
+    {
+      "i": 42,
+      "t": "1:45",
+      "line": "Try deactivating your account.",
+      "scene": "a screen with a button reading DEACTIVATE and a question mark"
+    },
+    {
+      "i": 43,
+      "t": "1:47",
+      "line": "It shows you photos of your friends.",
+      "scene": "a screen showing three little photo frames each with a tiny stick-figure face"
+    },
+    {
+      "i": 44,
+      "t": "1:49",
+      "line": "So-and-so will miss you.",
+      "scene": "a sad stick figure with a speech bubble reading WILL MISS YOU"
+    },
+    {
+      "i": 45,
+      "t": "1:50",
+      "line": "Persuasion to the last pixel.",
+      "scene": "one stick figure whispering into another stick figure's ear, small label PERSUASION"
+    },
+    {
+      "i": 46,
+      "t": "1:53",
+      "line": "And gyms wrote the original playbook.",
+      "scene": "a stick figure lifting a dumbbell next to a book labeled PLAYBOOK"
+    },
+    {
+      "i": 47,
+      "t": "1:55",
+      "line": "For years, America's biggest gym chain accepted exactly two ways to cancel.",
+      "scene": "a dumbbell with a big number 2 and two arrows"
+    },
+    {
+      "i": 48,
+      "t": "1:59",
+      "line": "Show up in person at the specific club where you signed up.",
+      "scene": "a stick figure walking through the door of a building labeled GYM"
+    },
+    {
+      "i": 49,
+      "t": "2:03",
+      "line": "Or post a letter.",
+      "scene": "a hand dropping an envelope with a stamp into a mailbox"
+    },
+    {
+      "i": 50,
+      "t": "2:04",
+      "line": "In the age of one tap everything, leaving the gym required a stamp.",
+      "scene": "on the left a phone with one tap, on the right a postage stamp, an arrow between"
+    },
+    {
+      "i": 51,
+      "t": "2:08",
+      "line": "Regulators did write a rule for all of this.",
+      "scene": "a stick figure official writing on a paper labeled RULE"
+    },
+    {
+      "i": 52,
+      "t": "2:11",
+      "line": "It basically said one thing.",
+      "scene": "a single speech bubble with a big number 1 inside"
+    },
+    {
+      "i": 53,
+      "t": "2:13",
+      "line": "Cancelling must be as easy as signing up.",
+      "scene": "a balance scale, left pan labeled CANCEL, right pan labeled SIGN UP, perfectly level"
+    },
+    {
+      "i": 54,
+      "t": "2:15",
+      "line": "A court threw it out six days before it took effect on paperwork grounds.",
+      "scene": "a gavel knocking a paper into a trash can, small sign reading 6 DAYS"
+    },
+    {
+      "i": 55,
+      "t": "2:19",
+      "line": "As of this year, they're trying again.",
+      "scene": "a stick figure pushing a round rock up a hill with a sign reading AGAIN"
+    },
+    {
+      "i": 56,
+      "t": "2:21",
+      "line": "Now, every video about this topic tells you the same story.",
+      "scene": "a video play-button rectangle with a talking stick figure inside"
+    },
+    {
+      "i": 57,
+      "t": "2:25",
+      "line": "Evil designers.",
+      "scene": "a stick figure with little devil horns sitting at a drawing desk, label DESIGNER"
+    },
+    {
+      "i": 58,
+      "t": "2:26",
+      "line": "Dark patterns.",
+      "scene": "a black tangled maze pattern in a box labeled DARK PATTERNS"
+    },
+    {
+      "i": 59,
+      "t": "2:27",
+      "line": "Malice all the way down.",
+      "scene": "a downward arrow passing through stacked layers all labeled MALICE"
+    },
+    {
+      "i": 60,
+      "t": "2:29",
+      "line": "And sometimes, Iliad, that's exactly right.",
+      "scene": "a big green check mark next to the word ILIAD"
+    },
+    {
+      "i": 61,
+      "t": "2:31",
+      "line": "But here's the part nobody talks about.",
+      "scene": "a stick figure with a finger to its lips, small sign reading NOBODY TALKS"
+    },
+    {
+      "i": 62,
+      "t": "2:33",
+      "line": "There are three species of exit.",
+      "scene": "three doors in a row each labeled EXIT with numbers 1 2 3"
+    },
+    {
+      "i": 63,
+      "t": "2:35",
+      "line": "Not one.",
+      "scene": "a single door with a big X crossed over it, label NOT 1"
+    },
+    {
+      "i": 64,
+      "t": "2:36",
+      "line": "The first is the trap.",
+      "scene": "a door labeled TRAP with a simple bear trap in front of it"
+    },
+    {
+      "i": 65,
+      "t": "2:37",
+      "line": "Designed.",
+      "scene": "a ruler and a pencil drawing a straight line, label DESIGNED"
+    },
+    {
+      "i": 66,
+      "t": "2:38",
+      "line": "Tested.",
+      "scene": "a checklist clipboard with three check marks, label TESTED"
+    },
+    {
+      "i": 67,
+      "t": "2:38b",
+      "line": "Named after Greek epics.",
+      "scene": "a single Greek column next to a scroll labeled GREEK EPIC"
+    },
+    {
+      "i": 68,
+      "t": "2:40",
+      "line": "The second is the honest exit.",
+      "scene": "a door labeled HONEST EXIT with a smiley face on it"
+    },
+    {
+      "i": 69,
+      "t": "2:42",
+      "line": "Rare but real.",
+      "scene": "a simple diamond gem with a label RARE"
+    },
+    {
+      "i": 70,
+      "t": "2:43",
+      "line": "One page.",
+      "scene": "a single sheet of paper with a big number 1, label 1 PAGE"
+    },
+    {
+      "i": 71,
+      "t": "2:43b",
+      "line": "One click.",
+      "scene": "a single cursor arrow pressing a button, label 1 CLICK"
+    },
+    {
+      "i": 72,
+      "t": "2:44",
+      "line": "A genuine goodbye.",
+      "scene": "a friendly stick figure waving with a speech bubble reading GOODBYE"
+    },
+    {
+      "i": 73,
+      "t": "2:45",
+      "line": "And the third species explains most of your bad experiences.",
+      "scene": "a door with a big number 3 and a frowning stick figure beside it"
+    },
+    {
+      "i": 74,
+      "t": "2:49",
+      "line": "The neglected exit.",
+      "scene": "a dusty door covered in cobwebs labeled NEGLECTED"
+    },
+    {
+      "i": 75,
+      "t": "2:50",
+      "line": "Nobody owns the cancellation page.",
+      "scene": "a lone page with a label reading OWNER and three question marks, nobody around it"
+    },
+    {
+      "i": 76,
+      "t": "2:52",
+      "line": "Nobody ever got promoted for making it smoother.",
+      "scene": "a stick figure next to a crossed-out trophy, label NO PROMOTION"
+    },
+    {
+      "i": 77,
+      "t": "2:55",
+      "line": "Every roadmap has a workstream for sign-up conversion.",
+      "scene": "a simple roadmap line with a highlighted box reading SIGN UP"
+    },
+    {
+      "i": 78,
+      "t": "2:58",
+      "line": "Nobody in the history of planning meetings has demanded a more delightful goodbye.",
+      "scene": "stick figures around a meeting table, one silent, a faint sign reading DELIGHTFUL GOODBYE"
+    },
+    {
+      "i": 79,
+      "t": "3:03",
+      "line": "So the page just rots.",
+      "scene": "a sheet of paper with cracks and mold spots, label ROT"
+    },
+    {
+      "i": 80,
+      "t": "3:05",
+      "line": "Broken links.",
+      "scene": "a chain with one broken link, label LINK"
+    },
+    {
+      "i": 81,
+      "t": "3:06",
+      "line": "Forms that error out.",
+      "scene": "a form on a screen with a big red word ERROR"
+    },
+    {
+      "i": 82,
+      "t": "3:07",
+      "line": "A phone number that rings and rings.",
+      "scene": "an old telephone with little sound lines, text RING RING, nobody answering"
+    },
+    {
+      "i": 83,
+      "t": "3:10",
+      "line": "Not malice.",
+      "scene": "the word MALICE with a big X crossed through it"
+    },
+    {
+      "i": 84,
+      "t": "3:10b",
+      "line": "An orphan.",
+      "scene": "one small lonely stick figure standing alone, label ORPHAN"
+    },
+    {
+      "i": 85,
+      "t": "3:11",
+      "line": "And you can tell the species apart with a trained eye.",
+      "scene": "a big open eye with a magnifying glass, label TRAINED EYE"
+    },
+    {
+      "i": 86,
+      "t": "3:14",
+      "line": "Neglect looks stale.",
+      "scene": "an old moldy sheet of paper, label STALE"
+    },
+    {
+      "i": 87,
+      "t": "3:16",
+      "line": "Like nobody has touched it in years.",
+      "scene": "a dusty page covered in cobwebs, label YEARS"
+    },
+    {
+      "i": 88,
+      "t": "3:17",
+      "line": "A trap looks polished in exactly the wrong direction.",
+      "scene": "a shiny button with sparkle marks and an arrow pointing the wrong way, label TRAP"
+    },
+    {
+      "i": 89,
+      "t": "3:21",
+      "line": "Every button that keeps you is big and bright.",
+      "scene": "one huge bright button in the center labeled STAY"
+    },
+    {
+      "i": 90,
+      "t": "3:23",
+      "line": "The one that frees you is grey text.",
+      "scene": "a tiny faint grey word cancel in the corner of a big empty box"
+    },
+    {
+      "i": 91,
+      "t": "3:25",
+      "line": "Size 10.",
+      "scene": "a very tiny word with a ruler beside it labeled SIZE 10"
+    },
+    {
+      "i": 92,
+      "t": "3:26",
+      "line": "Bottom left.",
+      "scene": "a big empty box with a tiny word cancel in the bottom-left corner and an arrow"
+    },
+    {
+      "i": 93,
+      "t": "3:28",
+      "line": "So why do traps keep winning?",
+      "scene": "a bear trap holding up a small trophy, question mark above"
+    },
+    {
+      "i": 94,
+      "t": "3:29",
+      "line": "Follow the dashboard.",
+      "scene": "a car-style dashboard gauge with a finger pointing at it"
+    },
+    {
+      "i": 95,
+      "t": "3:31",
+      "line": "Inside every subscription business there's a number called save rate.",
+      "scene": "a dashboard gauge with a label reading SAVE RATE"
+    },
+    {
+      "i": 96,
+      "t": "3:34",
+      "line": "The percentage of people who tried to leave and got talked out of it.",
+      "scene": "a stick figure walking toward an exit but pulled back by a hand, a percent sign"
+    },
+    {
+      "i": 97,
+      "t": "3:38",
+      "line": "It's measured weekly.",
+      "scene": "a calendar labeled WEEKLY next to a small gauge"
+    },
+    {
+      "i": 98,
+      "t": "3:39",
+      "line": "It's celebrated.",
+      "scene": "two stick figures cheering with arms up and little confetti dots"
+    },
+    {
+      "i": 99,
+      "t": "3:40",
+      "line": "And somewhere it's attached to a bonus.",
+      "scene": "a money bag labeled BONUS tied by a string to a gauge"
+    },
+    {
+      "i": 100,
+      "t": "3:43",
+      "line": "Now here's the number that isn't on any dashboard.",
+      "scene": "a dashboard with one empty slot showing three question marks"
+    },
+    {
+      "i": 101,
+      "t": "3:45",
+      "line": "Resentment.",
+      "scene": "an angry stick-figure face with furrowed brows, label RESENTMENT"
+    },
+    {
+      "i": 102,
+      "t": "3:46",
+      "line": "Mildly unhappy customers leave quietly.",
+      "scene": "a slightly frowning stick figure tiptoeing away, small shh"
+    },
+    {
+      "i": 103,
+      "t": "3:49",
+      "line": "They forget you.",
+      "scene": "a stick figure walking away with a thought bubble containing a question mark"
+    },
+    {
+      "i": 104,
+      "t": "3:50",
+      "line": "Trapped customers leave furious.",
+      "scene": "an angry stick figure storming off with steam lines above its head"
+    },
+    {
+      "i": 105,
+      "t": "3:52",
+      "line": "And they recruit.",
+      "scene": "an angry stick figure waving others to follow, label RECRUIT"
+    },
+    {
+      "i": 106,
+      "t": "3:53",
+      "line": "They warn their friends.",
+      "scene": "a stick figure holding a warning triangle sign speaking to two others"
+    },
+    {
+      "i": 107,
+      "t": "3:54",
+      "line": "Their followers.",
+      "scene": "one stick figure in front of a small crowd of stick figures"
+    },
+    {
+      "i": 108,
+      "t": "3:55",
+      "line": "Their procurement team.",
+      "scene": "three stick figures sitting at a long desk, sign reading PROCUREMENT"
+    },
+    {
+      "i": 109,
+      "t": "3:57",
+      "line": "Charlie Munger spent his whole life warning about exactly this mechanism.",
+      "scene": "an old stick figure with round glasses pointing a finger, small label MUNGER"
+    },
+    {
+      "i": 110,
+      "t": "4:01",
+      "line": "Show me the incentive and I'll show you the outcome.",
+      "scene": "a carrot dangling on a stick with an arrow pointing to a result box, labels INCENTIVE and OUTCOME"
+    },
+    {
+      "i": 111,
+      "t": "4:03",
+      "line": "The dashboard reward saves.",
+      "scene": "a dashboard with a small trophy sitting on a slot labeled SAVES"
+    },
+    {
+      "i": 112,
+      "t": "4:05",
+      "line": "The dashboard never sees the rage.",
+      "scene": "a dashboard wearing a blindfold, an angry face off to the side labeled RAGE"
+    },
+    {
+      "i": 113,
+      "t": "4:07",
+      "line": "So the machine quietly optimises for trapped and angry.",
+      "scene": "a boxy machine with gears turned by stick figures, output label TRAPPED AND ANGRY"
+    },
+    {
+      "i": 114,
+      "t": "4:12",
+      "line": "One more thing about that machine.",
+      "scene": "a boxy machine with a small plus one sign pointing at it"
+    },
+    {
+      "i": 115,
+      "t": "4:13",
+      "line": "The sign up page and the cancel page are built by the same team.",
+      "scene": "two pages labeled SIGN UP and CANCEL both built by the same two stick figures"
+    },
+    {
+      "i": 116,
+      "t": "4:16",
+      "line": "Same tools.",
+      "scene": "an open toolbox with a hammer and wrench, label SAME TOOLS"
+    },
+    {
+      "i": 117,
+      "t": "4:17",
+      "line": "A B-test.",
+      "scene": "two boxes labeled A and B side by side with a magnifying glass"
+    },
+    {
+      "i": 118,
+      "t": "4:18",
+      "line": "Button colours.",
+      "scene": "two identical buttons in two different flat colors"
+    },
+    {
+      "i": 119,
+      "t": "4:19",
+      "line": "Copy tweaks.",
+      "scene": "a page of text with a pencil editing a word, label COPY"
+    },
+    {
+      "i": 120,
+      "t": "4:20",
+      "line": "The difference is whose side the persuasion is on.",
+      "scene": "two stick figures in a tug of war over a rope labeled PERSUASION"
+    },
+    {
+      "i": 121,
+      "t": "4:23",
+      "line": "On the way in you and the company roughly want the same thing.",
+      "scene": "two stick figures shaking hands, both arrows pointing the same way, label IN"
+    },
+    {
+      "i": 122,
+      "t": "4:26",
+      "line": "The cancel page is the only page where your interests and theirs openly conflict.",
+      "scene": "two stick figures pulling in opposite directions, a jagged CONFLICT mark, label CANCEL"
+    },
+    {
+      "i": 123,
+      "t": "4:33",
+      "line": "Persuasion doesn't stop at the exit.",
+      "scene": "a door labeled EXIT with a persuasion arrow continuing past it"
+    },
+    {
+      "i": 124,
+      "t": "4:35",
+      "line": "It switches sides.",
+      "scene": "an arrow bending to flip direction, label SWITCH"
+    },
+    {
+      "i": 125,
+      "t": "4:36",
+      "line": "Every trick that got you in running in reverse to keep you from leaving.",
+      "scene": "a gear with a curved arrow spinning backward, label REVERSE"
+    },
+    {
+      "i": 126,
+      "t": "4:40",
+      "line": "Now scale it up.",
+      "scene": "a small box with an arrow growing into a big box, label SCALE UP"
+    },
+    {
+      "i": 127,
+      "t": "4:41",
+      "line": "Because everything so far was pocket money.",
+      "scene": "a few coins inside a pocket outline, label POCKET MONEY"
+    },
+    {
+      "i": 128,
+      "t": "4:44",
+      "line": "In business software the maze isn't three screens.",
+      "scene": "a large complicated maze far bigger than three small screens, label B2B"
+    },
+    {
+      "i": 129,
+      "t": "4:46",
+      "line": "It's a contract.",
+      "scene": "a big sheet of paper covered in lines labeled CONTRACT"
+    },
+    {
+      "i": 130,
+      "t": "4:48",
+      "line": "The subscription renews automatically for a year.",
+      "scene": "a calendar with a circular loop arrow, label AUTO RENEW 1 YEAR"
+    },
+    {
+      "i": 131,
+      "t": "4:51",
+      "line": "Unless you give notice 90 days in advance.",
+      "scene": "a calendar marked 90 DAYS next to a notice paper"
+    },
+    {
+      "i": 132,
+      "t": "4:54",
+      "line": "In writing.",
+      "scene": "a hand writing on a sheet of paper, label IN WRITING"
+    },
+    {
+      "i": 133,
+      "t": "4:55",
+      "line": "Per clause 14.",
+      "scene": "a contract paper with a line circled and labeled CLAUSE 14"
+    },
+    {
+      "i": 134,
+      "t": "4:56",
+      "line": "Miss that window by a day you own another year.",
+      "scene": "a calendar with one day crossed and a chain to a box labeled PLUS 1 YEAR"
+    },
+    {
+      "i": 135,
+      "t": "4:59",
+      "line": "Or this one.",
+      "scene": "a single finger pointing with the word OR"
+    },
+    {
+      "i": 136,
+      "t": "5:00",
+      "line": "To cancel please book a call with your customer success manager.",
+      "scene": "a calendar with a phone icon labeled BOOK A CALL and a stick figure labeled CSM"
+    },
+    {
+      "i": 137,
+      "t": "5:04",
+      "line": "A meeting with one agenda item.",
+      "scene": "a clipboard agenda with a single line item"
+    },
+    {
+      "i": 138,
+      "t": "5:06",
+      "line": "Talking you out of the meeting.",
+      "scene": "one stick figure with a big speech bubble talking at another stick figure"
+    },
+    {
+      "i": 139,
+      "t": "5:07",
+      "line": "Or the quiet one.",
+      "scene": "a stick figure with a finger to its lips, label QUIET"
+    },
+    {
+      "i": 140,
+      "t": "5:08",
+      "line": "Of course you can leave.",
+      "scene": "a smiling stick figure gesturing toward an open door, label SURE"
+    },
+    {
+      "i": 141,
+      "t": "5:10",
+      "line": "Your data export will be ready in six to eight weeks.",
+      "scene": "a box labeled DATA next to an hourglass and a sign reading 6 TO 8 WEEKS"
+    },
+    {
+      "i": 142,
+      "t": "5:12",
+      "line": "Your own numbers held politely hostage.",
+      "scene": "numbers 1 2 3 locked inside a cage, label HOSTAGE"
+    },
+    {
+      "i": 143,
+      "t": "5:14",
+      "line": "But here's the uncomfortable bit where this video breaks from the genre.",
+      "scene": "a film strip snapping in two, label BREAK"
+    },
+    {
+      "i": 144,
+      "t": "5:18",
+      "line": "Easy exit isn't automatically on your side either.",
+      "scene": "an open exit door with a warning triangle sign beside it"
+    },
+    {
+      "i": 145,
+      "t": "5:21",
+      "line": "Some products genuinely need time.",
+      "scene": "a single hourglass in the center, label TIME"
+    },
+    {
+      "i": 146,
+      "t": "5:24",
+      "line": "Ad campaigns need data before anyone can optimise them.",
+      "scene": "a megaphone next to a small rising bar chart, label DATA"
+    },
+    {
+      "i": 147,
+      "t": "5:27",
+      "line": "Nobody honest can show you results in three days.",
+      "scene": "a calendar reading 3 DAYS with a box of results showing a question mark"
+    },
+    {
+      "i": 148,
+      "t": "5:30",
+      "line": "A vendor that lets you walk in week one before the thing could possibly have worked.",
+      "scene": "a stick figure walking out through a door, sign reading WEEK 1"
+    },
+    {
+      "i": 149,
+      "t": "5:34",
+      "line": "Isn't being noble.",
+      "scene": "a halo floating above nothing with a big X crossing it, label NOT NOBLE"
+    },
+    {
+      "i": 150,
+      "t": "5:35",
+      "line": "It's happy to take a month of your money and let you fail.",
+      "scene": "a money bag labeled 1 MONTH next to a stick figure falling over"
+    },
+    {
+      "i": 151,
+      "t": "5:39",
+      "line": "So the test isn't friction versus no friction.",
+      "scene": "a balance scale labeled FRICTION versus NONE with a big X over the whole thing"
+    },
+    {
+      "i": 152,
+      "t": "5:42",
+      "line": "The test is two questions.",
+      "scene": "two big question marks side by side, label 2"
+    },
+    {
+      "i": 153,
+      "t": "5:44",
+      "line": "Was the friction agreed in daylight?",
+      "scene": "a bright sun above two stick figures shaking hands, label AGREED"
+    },
+    {
+      "i": 154,
+      "t": "5:46",
+      "line": "On the table.",
+      "scene": "a simple table with a contract paper sitting on top of it"
+    },
+    {
+      "i": 155,
+      "t": "5:47",
+      "line": "Up front.",
+      "scene": "a paper positioned at the very front of a stack, label UP FRONT"
+    },
+    {
+      "i": 156,
+      "t": "5:48",
+      "line": "Not discovered in clause 14.",
+      "scene": "a magnifying glass finding tiny hidden text labeled CLAUSE 14"
+    },
+    {
+      "i": 157,
+      "t": "5:50",
+      "line": "Two.",
+      "scene": "a single big number 2 in the center"
+    },
+    {
+      "i": 158,
+      "t": "5:50b",
+      "line": "Does it expire when the value arrives?",
+      "scene": "an hourglass running out as a gift box labeled VALUE appears, question mark"
+    },
+    {
+      "i": 159,
+      "t": "5:53",
+      "line": "An annual contract with milestones set on day one.",
+      "scene": "a horizontal timeline with little flag milestones, label DAY 1"
+    },
+    {
+      "i": 160,
+      "t": "5:56",
+      "line": "By week two you'll see this.",
+      "scene": "a calendar labeled WEEK 2 with an arrow pointing forward"
+    },
+    {
+      "i": 161,
+      "t": "5:57",
+      "line": "By month two you'll see that.",
+      "scene": "a calendar labeled MONTH 2 with an arrow pointing forward"
+    },
+    {
+      "i": 162,
+      "t": "5:58",
+      "line": "Is commitment.",
+      "scene": "two hands in a firm handshake, label COMMITMENT"
+    },
+    {
+      "i": 163,
+      "t": "5:59",
+      "line": "The identical contract with no milestones is a cage with a dashboard.",
+      "scene": "a birdcage with a small dashboard gauge inside it, label NO MILESTONES"
+    },
+    {
+      "i": 164,
+      "t": "6:03",
+      "line": "And that test cuts back at the seller.",
+      "scene": "a pair of scissors cutting toward a stick figure labeled SELLER"
+    },
+    {
+      "i": 165,
+      "t": "6:06",
+      "line": "If your product takes six months to show value, friction isn't protecting the journey.",
+      "scene": "a calendar reading 6 MONTHS above a long winding road labeled JOURNEY"
+    },
+    {
+      "i": 166,
+      "t": "6:11",
+      "line": "It's compensating for a design failure.",
+      "scene": "a broken product box with a bandage on it, label DESIGN FAIL"
+    },
+    {
+      "i": 167,
+      "t": "6:14",
+      "line": "So what do you actually do with all this?",
+      "scene": "a shrugging stick figure with a big question mark"
+    },
+    {
+      "i": 168,
+      "t": "6:16",
+      "line": "One habit.",
+      "scene": "a big number 1 with a check mark, label HABIT"
+    },
+    {
+      "i": 169,
+      "t": "6:17",
+      "line": "Check the exit before you enter.",
+      "scene": "a stick figure peeking at a door labeled EXIT before stepping through a door labeled ENTER"
+    },
+    {
+      "i": 170,
+      "t": "6:19",
+      "line": "Before the free trial.",
+      "scene": "a tag reading FREE TRIAL with a magnifying glass over it"
+    },
+    {
+      "i": 171,
+      "t": "6:20",
+      "line": "Before the signature.",
+      "scene": "a pen hovering over a signature line, label SIGN"
+    },
+    {
+      "i": 172,
+      "t": "6:22",
+      "line": "Search the product name plus the word cancel.",
+      "scene": "a search bar box with typed text reading NAME CANCEL and a magnifier"
+    },
+    {
+      "i": 173,
+      "t": "6:24",
+      "line": "Count the steps.",
+      "scene": "a small staircase with steps numbered 1 2 3"
+    },
+    {
+      "i": 174,
+      "t": "6:25",
+      "line": "Read what former customers went through on the way out.",
+      "scene": "a stick figure reading a page full of little review lines, label EXIT STORIES"
+    },
+    {
+      "i": 175,
+      "t": "6:28",
+      "line": "It works on a $9 app.",
+      "scene": "a phone showing an app icon with a price tag reading $9"
+    },
+    {
+      "i": 176,
+      "t": "6:30",
+      "line": "It works on a $90,000 contract.",
+      "scene": "a big contract paper with a price tag reading $90,000"
+    },
+    {
+      "i": 177,
+      "t": "6:32",
+      "line": "Same test.",
+      "scene": "a big equals sign with the word SAME"
+    },
+    {
+      "i": 178,
+      "t": "6:33",
+      "line": "Because the cancellation flow is the one page a company builds.",
+      "scene": "a single highlighted page labeled CANCEL FLOW"
+    },
+    {
+      "i": 179,
+      "t": "6:37",
+      "line": "For the moment your interests and theirs collide.",
+      "scene": "two arrows crashing head on with a jagged burst, label COLLIDE"
+    },
+    {
+      "i": 180,
+      "t": "6:40",
+      "line": "It predicts everything.",
+      "scene": "a crystal ball on a stand, label PREDICTS"
+    },
+    {
+      "i": 181,
+      "t": "6:41",
+      "line": "Support.",
+      "scene": "a simple headset with a microphone, label SUPPORT"
+    },
+    {
+      "i": 182,
+      "t": "6:42",
+      "line": "Renewals.",
+      "scene": "a circular loop arrow, label RENEWAL"
+    },
+    {
+      "i": 183,
+      "t": "6:43",
+      "line": "How they'll treat you when there's nothing left to sell you.",
+      "scene": "a stick figure standing alone by an empty shelf, label NOTHING TO SELL"
+    },
+    {
+      "i": 184,
+      "t": "6:46",
+      "line": "The exit is part of the product.",
+      "scene": "a product box with a small door labeled EXIT drawn inside it"
+    },
+    {
+      "i": 185,
+      "t": "6:48",
+      "line": "Time to write it down.",
+      "scene": "a hand writing in an open notebook, label NOTE"
+    },
+    {
+      "i": 186,
+      "t": "6:49",
+      "line": "This channel runs on numbered principles.",
+      "scene": "a numbered list showing 1 2 3, label PRINCIPLES"
+    },
+    {
+      "i": 187,
+      "t": "6:51",
+      "line": "You're meant to steal them.",
+      "scene": "a stick figure sneaking off holding a paper labeled PRINCIPLE, label STEAL"
+    },
+    {
+      "i": 188,
+      "t": "6:53",
+      "line": "Principle number one.",
+      "scene": "a big bold number 1 with the word PRINCIPLE"
+    },
+    {
+      "i": 189,
+      "t": "6:54",
+      "line": "Friction you agreed to is commitment.",
+      "scene": "a handshake with text reading AGREED equals COMMITMENT"
+    },
+    {
+      "i": 190,
+      "t": "6:57",
+      "line": "Friction you discover is a warning.",
+      "scene": "a magnifying glass finding a warning triangle, text DISCOVER equals WARNING"
+    },
+    {
+      "i": 191,
+      "t": "6:59",
+      "line": "Sometimes the warning says trap.",
+      "scene": "a warning triangle sign with the word TRAP inside it"
+    },
+    {
+      "i": 192,
+      "t": "7:01",
+      "line": "Sometimes it just says nobody owns the exit.",
+      "scene": "a door labeled EXIT with a warning sign reading NO OWNER"
+    },
+    {
+      "i": 193,
+      "t": "7:04",
+      "line": "And nobody will own your problems after the sale either.",
+      "scene": "a stick figure surrounded by problem marks with nobody helping, label AFTER SALE"
+    },
+    {
+      "i": 194,
+      "t": "7:07",
+      "line": "You don't need to know which.",
+      "scene": "a shrugging stick figure between two boxes with question marks"
+    },
+    {
+      "i": 195,
+      "t": "7:08",
+      "line": "Either way you learned who you're dealing with before it cost you.",
+      "scene": "a stick figure with a lightbulb above its head and a saved coin, label LEARNED"
+    },
+    {
+      "i": 196,
+      "t": "7:11",
+      "line": "And because a principle you can't invert is just a poster.",
+      "scene": "a framed poster hanging on a wall, label POSTER"
+    },
+    {
+      "i": 197,
+      "t": "7:14",
+      "line": "Friction is legitimate when it's agreed up front.",
+      "scene": "a handshake with a sign reading AGREED UP FRONT"
+    },
+    {
+      "i": 198,
+      "t": "7:17",
+      "line": "Tied to milestones.",
+      "scene": "little flag milestones tied together with a rope"
+    },
+    {
+      "i": 199,
+      "t": "7:18",
+      "line": "And expiring the moment value arrives.",
+      "scene": "an hourglass running out beside a gift box labeled VALUE"
+    },
+    {
+      "i": 200,
+      "t": "7:21",
+      "line": "For the sellers watching.",
+      "scene": "a stick figure with a tag reading SELLER watching a screen"
+    },
+    {
+      "i": 201,
+      "t": "7:22",
+      "line": "A customer kept by discovered friction isn't saved.",
+      "scene": "a stick figure stuck in a box, label NOT SAVED"
+    },
+    {
+      "i": 202,
+      "t": "7:25",
+      "line": "That's churn deferred.",
+      "scene": "a calendar with a forward arrow, label CHURN LATER"
+    },
+    {
+      "i": 203,
+      "t": "7:26",
+      "line": "With interest.",
+      "scene": "a steeply rising arrow with a plus sign, label INTEREST"
+    },
+    {
+      "i": 204,
+      "t": "7:28",
+      "line": "They come back angrier.",
+      "scene": "an angry stick figure returning with a U-turn arrow, label ANGRIER"
+    },
+    {
+      "i": 205,
+      "t": "7:29",
+      "line": "Louder.",
+      "scene": "a big megaphone with sound lines, label LOUDER"
+    },
+    {
+      "i": 206,
+      "t": "7:29b",
+      "line": "And with an audience.",
+      "scene": "one stick figure in front of a large crowd of stick figures, label AUDIENCE"
+    },
+    {
+      "i": 207,
+      "t": "7:31",
+      "line": "Somewhere this week you'll hit another 30 second sign up.",
+      "scene": "a phone with a SIGN UP button and a small clock reading 30s"
+    },
+    {
+      "i": 208,
+      "t": "7:34",
+      "line": "This time spend one extra minute first.",
+      "scene": "a clock with a plus one minute mark, label PLUS 1 MIN"
+    },
+    {
+      "i": 209,
+      "t": "7:37",
+      "line": "Look at the door you'd leave through.",
+      "scene": "a stick figure inspecting a door labeled EXIT with a magnifying glass"
+    },
+    {
+      "i": 210,
+      "t": "7:38",
+      "line": "It will tell you more than the sales page ever will.",
+      "scene": "a big door labeled EXIT next to a small page labeled SALES"
+    },
+    {
+      "i": 211,
+      "t": "7:41",
+      "line": "Next episode.",
+      "scene": "a film clapperboard with text reading NEXT EPISODE"
+    },
+    {
+      "i": 212,
+      "t": "7:42",
+      "line": "The countdown timer that's lying to you.",
+      "scene": "a countdown timer clock with a long lying nose, label LIES"
+    },
+    {
+      "i": 213,
+      "t": "7:45",
+      "line": "Only two rooms left at this price.",
+      "scene": "a hotel sign reading 2 ROOMS LEFT"
+    },
+    {
+      "i": 214,
+      "t": "7:47",
+      "line": "The deal ends at midnight.",
+      "scene": "a clock showing midnight with a sign reading DEAL ENDS"
+    },
+    {
+      "i": 215,
+      "t": "7:49",
+      "line": "And the end of quarter discount that somehow exists every quarter.",
+      "scene": "four boxes labeled Q1 Q2 Q3 Q4 each with a DISCOUNT tag"
+    },
+    {
+      "i": 216,
+      "t": "7:52",
+      "line": "Manufactured scarcity from booking sites to enterprise sales.",
+      "scene": "a factory building with a conveyor belt producing signs reading SCARCITY"
+    },
+    {
+      "i": 217,
+      "t": "7:56",
+      "line": "Principle number two lives in that one.",
+      "scene": "a big bold number 2 with the word PRINCIPLE"
+    },
+    {
+      "i": 218,
+      "t": "7:58",
+      "line": "Subscribe if you're collecting the set.",
+      "scene": "a big button reading SUBSCRIBE next to a row of collectible cards"
+    },
+    {
+      "i": 219,
+      "t": "8:01",
+      "line": "Drop the worst cancellation flow you've ever fought in the comments.",
+      "scene": "a comment box with a text cursor, label WORST FLOW"
+    },
+    {
+      "i": 220,
+      "t": "8:05",
+      "line": "The most painful one gets a full teardown in a future episode.",
+      "scene": "a stick figure tearing a page in half, label TEARDOWN"
+    }
+  ]
+}
